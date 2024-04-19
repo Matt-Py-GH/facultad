@@ -21,10 +21,11 @@ cout << "----------------------------------------------" << endl;
 cout << "Los numeros pares del 0 al " << numeroSolicitado << " son: " << endl;
 for(int i = 0; contador < numeroSolicitado - 1; ++i){
     if(numeroSolicitado % 2 == 0){
-        contador += 2;
+    contador += 2;
     cout << contador << endl;
 }
-    else{contador +=2;
+    else{
+    contador +=2;
     cout << contador << endl;
     }
 }
