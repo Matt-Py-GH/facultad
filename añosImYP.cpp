@@ -1,27 +1,27 @@
-#include<stdio.h>
-#include<iostream>
+#include <iostream>
 using namespace std;
 
-int main(){
+int main() {
+    int arreglo[] = {1, 1, 1, 2, 2, 3, 4, 5};
+    int n = sizeof(arreglo) / sizeof(arreglo[0]);
 
-int edadDelUsuario;
-int contadorDePares = 0;
-int contadorDeImpares = 0;
+    int maxRepeticiones = 0;
+    int numeroMasRepetido = arreglo[0];
 
-printf("Introduzca su edad en anios: ");
-scanf("%i", &edadDelUsuario);
-
-if(edadDelUsuario <= 0 ){printf("Usted no ha vivido o ha introducido mal su edad \n");}
-
-printf("Usted ha vivido estos anios: \n");
-for(int i = 1; i <= edadDelUsuario; i++){
-    if(i % 2 == 0){contadorDePares += 1; printf("\n %i Anio par", i);}
-    if(i % 2 != 0){contadorDeImpares += 1;printf("\n %i Anio impar", i);}
+    for (int i = 0; i < n; i++) {
+        int repeticiones = 0;
+        for (int j = 0; j < n; j++) {
+            if (arreglo[i] == arreglo[j]) {
+                repeticiones++;
+            }
+        }
+        if (repeticiones > maxRepeticiones) {
+            maxRepeticiones = repeticiones;
+            numeroMasRepetido = arreglo[i];
+        }
     }
-    cout << endl;
-    cout << endl;
-    cout << "Usted ha vivido "; printf("%i", contadorDeImpares); cout << " anios impares." <<endl;
-    cout << "Y en total "; printf("%i", contadorDePares); cout << " anios pares." << endl;
 
-  return 0;
+    cout << "El numero que mas se repite es: " << numeroMasRepetido << endl;
+
+    return 0;
 }
